@@ -231,7 +231,7 @@ namespace Content.Shared.Atmos
         public const float PlasmaMinimumBurnTemperature = (100f+T0C);
         public const float PlasmaUpperTemperature = (1370f+T0C);
         public const float PlasmaOxygenFullburn = 10f;
-        public const float PlasmaBurnRateDelta = 9f;
+        public const float PlasmaBurnRateDelta = 3f;
 
         /// <summary>
         ///     This is calculated to help prevent singlecap bombs (Overpowered tritium/oxygen single tank bombs)
