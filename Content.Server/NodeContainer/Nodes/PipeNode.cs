@@ -6,6 +6,7 @@ using Content.Shared.NodeContainer;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 
+
 namespace Content.Server.NodeContainer.Nodes
 {
     /// <summary>
@@ -113,7 +114,7 @@ namespace Content.Server.NodeContainer.Nodes
         /// pressure the pipe can experience before it starts to take damage, in kPa.
         /// </summary>
         [DataField]
-        public float MaxPressure;
+        public float MaxPressureModifier;
 
         /// <summary>
         /// If there is an air-blocking entity above this pipe, the pressure increase factor to apply

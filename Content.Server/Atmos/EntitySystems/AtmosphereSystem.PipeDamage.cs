@@ -6,6 +6,7 @@ using Content.Shared.Damage.Components;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 
+
 namespace Content.Server.Atmos.EntitySystems;
 
 public sealed partial class AtmosphereSystem
@@ -46,7 +47,7 @@ public sealed partial class AtmosphereSystem
         {
             var node = pipeNet.Nodes[i];
             // Node isn't a pipe or doesn't take pressure damage
-            if (node is not PipeNode { MaxPressure: > 0 } pipe)
+            if (node is not PipeNode { MaxPressureModifier: > 0 } pipe)
                 continue;
 
             // Check to see if the node has an air-blocking
@@ -59,7 +60,7 @@ public sealed partial class AtmosphereSystem
             var xformGridUid = xform.GridUid.Value;
             var coords = _mapSystem.TileIndicesFor(xformGridUid, mapComp, xform.Coordinates);
             var airBlocked = IsTileAirBlockedCached(xformGridUid, coords);
-            var maxPressure = pipe.MaxPressure;
+            var maxPressure = Atmospherics.MaxOutputPressure * pipe.MaxPressureModifier;
             if (airBlocked)
             {
                 switch (pipe.AirBlockedMaxPressureIncreaseFactor)
